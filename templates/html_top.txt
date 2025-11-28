@@ -7,6 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <!-- سيتم إدراج CSS هنا من css.txt عبر المولّد -->
+<style>
+{{CSS}}
+</style>
 
 </head>
 <body>
@@ -49,7 +52,7 @@
   </section>
 </main>
 
-<!-- اسم المعلم -->
+<!-- النوافذ المنبثقة -->
 <div id="teacherPopup">
   <div class="popup-inner">
     <h3>إدخال اسم المعلم</h3>
@@ -62,7 +65,6 @@
   </div>
 </div>
 
-<!-- إعداد GitHub -->
 <div id="githubPopup">
   <div class="popup-inner">
     <h3>إعداد GitHub Token</h3>

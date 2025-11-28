@@ -1,0 +1,471 @@
+/* ============================
+   BASE STYLES
+   الخط — اللون — Reset
+   ============================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Cairo", sans-serif;
+  background: #020617;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+button {
+  cursor: pointer;
+  font-family: "Cairo", sans-serif;
+  transition: 0.15s;
+}
+
+input {
+  font-family: "Cairo", sans-serif;
+}
+
+/* روابط */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+a:hover {
+  color: #7dd3fc;
+}
+/* ============================
+   LAYOUT STYLES
+   الهيدر — الشبكة — الخطوط
+   ============================ */
+
+/* الهيدر */
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.app-title h1 {
+  font-size: 26px;
+  margin-bottom: 4px;
+  color: #f1f5f9;
+}
+
+.app-subtitle {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.teacher-label {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.header-spacer {
+  flex: 1;
+}
+
+/* الأزرار */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: #0ea5e9;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #0284c7;
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.05);
+  color: #e2e8f0;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* الشبكة */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 20px;
+}
+
+/* كارد */
+.card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 180px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #2dd4bf;
+  box-shadow: 0 0 8px rgba(45,212,191,0.25);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.card-count {
+  font-size: 12px;
+  color: #22d3ee;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.card-status {
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+/* أزرار الكارد */
+.file-input {
+  display: none;
+}
+
+/* الـ Footer */
+.footer-actions {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #aeb8c5;
+}
+
+/* QR grid */
+.qr-grid {
+  margin-top: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.qr-item {
+  padding: 14px;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.qr-item img {
+  width: 140px;
+  margin: 6px auto;
+}
+
+/* نص صغير */
+.small {
+  font-size: 10px;
+  color: #94a3b8;
+  overflow-wrap: anywhere;
+}
+
+/* RESPONSIVE */
+@media(max-width: 480px) {
+  .btn {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-spacer {
+    display: none;
+  }
+}
+/* ============================
+   COMPONENTS STYLES
+   Popups — Buttons — Overlays
+   ============================ */
+
+/* ====== Popup Overlay ====== */
+#teacherPopup,
+#githubPopup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* ====== Popup Inner ====== */
+.popup-inner {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  padding: 24px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.35);
+  animation: slideDown 0.25s ease-out;
+}
+
+.popup-inner h3 {
+  font-size: 20px;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.popup-inner p {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+/* ====== Popup Input ====== */
+.popup-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.popup-input:focus {
+  border-color: #38bdf8;
+}
+
+/* ====== Popup Buttons ====== */
+.popup-buttons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-confirm {
+  background: #0ea5e9;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  transition: 0.15s;
+}
+
+.btn-confirm:hover {
+  background: #0284c7;
+}
+
+.btn-cancel {
+  background: rgba(255,255,255,0.06);
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #f8fafc;
+  border: 1px solid #475569;
+  font-size: 14px;
+  transition: 0.15s;
+}
+
+.btn-cancel:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ====== Animations ====== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-15px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+/* ============================
+   THEME / COLORS / EFFECTS
+   ============================ */
+
+/* ===== ألوان عامة ===== */
+:root {
+  --bg-dark:        #020617;
+  --bg-card:        #0f172a;
+  --bg-card-hover:  #16223a;
+
+  --border-light:   #1e293b;
+  --border-strong:  #334155;
+
+  --text-main:      #f8fafc;
+  --text-soft:      #e2e8f0;
+  --text-muted:     #94a3b8;
+  --text-accent:    #22d3ee;
+
+  --accent:         #0ea5e9;
+  --accent-hover:   #0284c7;
+
+  --glow-accent:    rgba(14,165,233,0.35);
+  --glow-qr:        rgba(45,212,191,0.20);
+}
+
+/* ===== تأثيرات عامة ===== */
+.card,
+.qr-item,
+.popup-inner {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+/* ===== تأثير hover للكروت ===== */
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--glow-qr);
+}
+
+/* ===== أزرار أساسية ===== */
+.btn-primary {
+  background: var(--accent);
+  color: var(--text-main);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+/* ===== أزرار الشبح ===== */
+.btn-ghost {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-soft);
+  border: 1px solid var(--border-light);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: var(--accent);
+}
+
+/* ===== تحسين النصوص ===== */
+.card-title {
+  color: var(--text-main);
+}
+
+.card-subtitle {
+  color: var(--text-muted);
+}
+
+.card-count {
+  color: var(--text-accent);
+}
+
+/* ===== QR Item ===== */
+.qr-item {
+  border: 1px solid var(--border-light);
+  box-shadow: 0 0 6px rgba(0,0,0,0.25);
+}
+
+.qr-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--glow-accent);
+}
+
+.qr-item img {
+  border-radius: 6px;
+}
+
+/* ===== Popups ===== */
+.popup-inner {
+  border-color: var(--border-light);
+  box-shadow: 0 0 16px rgba(0,0,0,0.4);
+}
+
+.popup-inner h3 {
+  color: var(--text-main);
+}
+
+.popup-inner p {
+  color: var(--text-muted);
+}
+
+/* ===== Confirm Button ===== */
+.btn-confirm {
+  background: var(--accent);
+  color: var(--text-main);
+}
+
+.btn-confirm:hover {
+  background: var(--accent-hover);
+}
+
+/* ===== Cancel Button ===== */
+.btn-cancel {
+  border-color: var(--border-strong);
+  color: var(--text-soft);
+}
+
+.btn-cancel:hover {
+  background: rgba(255,255,255,0.10);
+}
+
+/* ===== خلفيات عامة ===== */
+body {
+  background: var(--bg-dark);
+  color: var(--text-soft);
+}
+
+/* ===== تحسين اللمسات النهائية ===== */
+header {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding-bottom: 10px;
+}
+
+.footer-actions {
+  margin-top: 22px;
+  color: var(--text-muted);
+}

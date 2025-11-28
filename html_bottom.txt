@@ -1,6 +1,0 @@
-</script>
-
-</div> <!-- .page -->
-
-</body>
-</html>
